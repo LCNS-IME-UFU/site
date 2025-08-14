@@ -1,11 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Meu Site no GitHub Pages</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IME-UFU</title>
+    <style>
+        /* Cores do IME-UFU */
+        :root {
+            --azul-ime: #003366;
+            --verde-ime: #2E7D32;
+            --amarelo-ime: #FFCC00;
+            --branco: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: var(--branco);
+            color: var(--azul-ime);
+        }
+
+        header {
+            background-color: var(--azul-ime);
+            color: var(--branco);
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: var(--verde-ime);
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        nav a {
+            color: var(--branco);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .highlight {
+            background-color: var(--amarelo-ime);
+            color: var(--azul-ime);
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: var(--azul-ime);
+            color: var(--branco);
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
 </head>
 <body>
-    <h1>Olá, mundo!</h1>
-    <p>Este é meu site hospedado no GitHub Pages.</p>
+    <header>
+        <h1>Instituto de Matemática e Estatística</h1>
+        <h2>Universidade Federal de Uberlândia</h2>
+    </header>
+
+    <nav>
+        <a href="#">Início</a>
+        <a href="#">Sobre</a>
+        <a href="#">Contato</a>
+    </nav>
+
+    <main>
+        <h2>Bem-vindo ao site do IME-UFU</h2>
+        <p>Este é um site de exemplo hospedado no GitHub Pages com as cores do IME-UFU.</p>
+        <div class="highlight">Conteúdo em destaque</div>
+    </main>
+
+    <footer>
+        &copy; 2025 IME-UFU — Todos os direitos reservados.
+    </footer>
 </body>
 </html>
