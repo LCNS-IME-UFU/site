@@ -1,32 +1,200 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IME-UFU</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Laboratório de Cálculo Numérico e Simbólico</h1>
-        <h2>Instituto de Matemática e Estatística</h2>
-        <h3>Universidade Federal de Uberlândia</h3>
-    </header>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <nav>
-        <a href="#">Início</a>
-        <a href="#">Sobre</a>
-        <a href="#">Contato</a>
+  <title>LCNS • IME-UFU</title>
+  <meta name="description" content="Laboratório de Cálculo Numérico e Simbólico — IME-UFU. Pesquisa em métodos numéricos, simulação e matemática aplicada." />
+
+  <!-- SEO/OG básico -->
+  <meta property="og:title" content="LCNS • IME-UFU" />
+  <meta property="og:description" content="Pesquisa em métodos numéricos, simulação e matemática aplicada." />
+  <meta property="og:type" content="website" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonte (opcional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --azul-ime:#003366; --verde-ime:#2E7D32; --amarelo-ime:#FFCC00; }
+    html, body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
+  </style>
+
+  <!-- Seu CSS (opcional para ajustes finos) -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Dark mode: respeita preferência e persiste escolha -->
+  <script>
+    (function () {
+      const stored = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (stored === 'dark' || (!stored && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+</head>
+<body class="bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-100">
+  <!-- Header / Navbar -->
+  <header class="sticky top-0 z-50 border-b bg-white/80 backdrop-blur dark:bg-slate-900/80">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+      <a href="#inicio" class="text-lg font-semibold">LCNS • IME-UFU</a>
+
+      <!-- Menu desktop -->
+      <ul class="hidden items-center gap-6 md:flex">
+        <li><a href="#sobre" class="transition hover:text-blue-600">Sobre</a></li>
+        <li><a href="#projetos" class="transition hover:text-blue-600">Projetos</a></li>
+        <li><a href="#publicacoes" class="transition hover:text-blue-600">Publicações</a></li>
+        <li><a href="#contato" class="transition hover:text-blue-600">Contato</a></li>
+        <li>
+          <button id="themeToggle" class="rounded-lg border px-3 py-1 text-sm transition hover:bg-slate-50 dark:hover:bg-slate-800" aria-label="Alternar tema">
+            ☀︎/🌙
+          </button>
+        </li>
+      </ul>
+
+      <!-- Menu mobile: botão -->
+      <button id="menuBtn" class="rounded-lg border px-3 py-1 md:hidden" aria-label="Abrir menu">☰</button>
     </nav>
 
-    <main>
-        <h2>Bem-vindo ao site do LCNS no IME-UFU</h2>
-        <p>Olá a todos.</p>
-        <div class="highlight">Conteúdo em destaque</div>
-    </main>
+    <!-- Menu mobile: lista -->
+    <div id="mobileMenu" class="hidden border-t bg-white dark:bg-slate-900 md:hidden">
+      <ul class="mx-auto max-w-6xl px-4 py-2">
+        <li><a href="#sobre" class="block py-2">Sobre</a></li>
+        <li><a href="#projetos" class="block py-2">Projetos</a></li>
+        <li><a href="#publicacoes" class="block py-2">Publicações</a></li>
+        <li><a href="#contato" class="block py-2">Contato</a></li>
+        <li>
+          <button id="themeToggleMobile" class="mt-2 w-full rounded-lg border px-3 py-2 text-left">Alternar tema ☀︎/🌙</button>
+        </li>
+      </ul>
+    </div>
+  </header>
 
-    <footer>
-        &copy; 2025 IME-UFU — Todos os direitos reservados.
-    </footer>
+  <!-- Hero -->
+  <section id="inicio" class="bg-gradient-to-b from-slate-50 to-white py-16 dark:from-slate-950 dark:to-slate-900">
+    <div class="mx-auto max-w-6xl px-4 text-center">
+      <h1 class="text-4xl font-extrabold tracking-tight md:text-6xl">
+        Laboratório de Cálculo Numérico e Simbólico
+      </h1>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-slate-600 dark:text-slate-300">
+        Pesquisa e desenvolvimento em métodos numéricos, simulação e matemática aplicada no IME-UFU.
+      </p>
+      <div class="mt-8 flex items-center justify-center gap-4">
+        <a href="#publicacoes" class="rounded-xl bg-blue-600 px-5 py-3 font-semibold text-white transition hover:opacity-90">Publicações</a>
+        <a href="#contato" class="rounded-xl border px-5 py-3 font-semibold transition hover:bg-slate-50 dark:hover:bg-slate-800">Contato</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Destaques (opcional) -->
+  <section class="py-10">
+    <div class="mx-auto max-w-6xl px-4">
+      <h2 class="text-2xl font-bold">Destaques</h2>
+      <div class="mt-6 grid gap-6 md:grid-cols-3">
+        <article class="rounded-2xl border p-5 shadow-sm">
+          <h3 class="font-semibold">Projeto A</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Métodos de alta ordem para escoamentos complexos.</p>
+          <a href="#projetos" class="mt-3 inline-block text-sm text-blue-600 hover:underline">Saiba mais →</a>
+        </article>
+        <article class="rounded-2xl border p-5 shadow-sm">
+          <h3 class="font-semibold">Publicação recente</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Resultados sobre instabilidades em camadas limite.</p>
+          <a href="#publicacoes" class="mt-3 inline-block text-sm text-blue-600 hover:underline">Ver lista →</a>
+        </article>
+        <article class="rounded-2xl border p-5 shadow-sm">
+          <h3 class="font-semibold">Parcerias</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Colaborações com grupos no Brasil e exterior.</p>
+          <a href="#sobre" class="mt-3 inline-block text-sm text-blue-600 hover:underline">Conheça →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre -->
+  <section id="sobre" class="border-t py-12">
+    <div class="mx-auto max-w-6xl px-4">
+      <h2 class="text-2xl font-bold">Sobre</h2>
+      <p class="mt-4 max-w-3xl text-slate-700 dark:text-slate-300">
+        O LCNS é um laboratório do IME-UFU dedicado a pesquisa e desenvolvimento em cálculo numérico,
+        modelagem e simulação. Este site reúne informações sobre nossas linhas de pesquisa, equipe, projetos e publicações.
+      </p>
+    </div>
+  </section>
+
+  <!-- Projetos -->
+  <section id="projetos" class="py-12">
+    <div class="mx-auto max-w-6xl px-4">
+      <h2 class="text-2xl font-bold">Projetos</h2>
+      <div class="mt-6 grid gap-6 md:grid-cols-2">
+        <div class="rounded-2xl border p-5">
+          <h3 class="font-semibold">Controle de Transição em Escoamentos</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Simulações numéricas e análise de estabilidade.</p>
+        </div>
+        <div class="rounded-2xl border p-5">
+          <h3 class="font-semibold">Métodos de Fronteira Imersa</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Interações fluido-estrutura com mallhas complexas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publicações -->
+  <section id="publicacoes" class="border-t py-12">
+    <div class="mx-auto max-w-6xl px-4">
+      <h2 class="text-2xl font-bold">Publicações</h2>
+      <p class="mt-4 text-slate-700 dark:text-slate-300">
+        Em breve: lista filtrável por ano/tema. (Sugestão: manter um arquivo <code>publications.json</code> e gerar esta lista via JS.)
+      </p>
+      <ul class="mt-6 list-disc space-y-2 pl-5 text-slate-700 dark:text-slate-300">
+        <li>[2025] Título do trabalho — Autores.</li>
+        <li>[2024] Título do trabalho — Autores.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="py-12">
+    <div class="mx-auto max-w-6xl px-4">
+      <h2 class="text-2xl font-bold">Contato</h2>
+      <p class="mt-4 text-slate-700 dark:text-slate-300">
+        E-mail: <a href="mailto:lcns@ime.ufu.br" class="text-blue-600 hover:underline">lcns@ime.ufu.br</a>
+      </p>
+      <!-- Formspree (exemplo sem backend) -->
+      <form action="https://formspree.io/f/your-id" method="POST" class="mt-6 grid max-w-xl gap-4">
+        <input type="text" name="name" placeholder="Nome" class="rounded-lg border px-4 py-2 bg-white dark:bg-slate-900" required />
+        <input type="email" name="email" placeholder="E-mail" class="rounded-lg border px-4 py-2 bg-white dark:bg-slate-900" required />
+        <textarea name="message" rows="4" placeholder="Mensagem" class="rounded-lg border px-4 py-2 bg-white dark:bg-slate-900" required></textarea>
+        <button class="rounded-lg bg-blue-600 px-5 py-3 font-semibold text-white transition hover:opacity-90">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="mt-12 bg-slate-100 py-6 text-center text-sm text-slate-600 dark:bg-slate-950 dark:text-slate-300">
+    &copy; 2025 IME-UFU — Todos os direitos reservados.
+  </footer>
+
+  <!-- Scripts simples -->
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const themeBtns = [document.getElementById('themeToggle'), document.getElementById('themeToggleMobile')];
+
+    menuBtn?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const isDark = html.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+    themeBtns.forEach(btn => btn?.addEventListener('click', toggleTheme));
+  </script>
 </body>
 </html>
