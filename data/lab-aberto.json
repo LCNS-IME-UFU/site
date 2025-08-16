@@ -1,1 +1,29 @@
-
+[
+  {
+    "titulo": "Mínimos Quadrados sem mistério",
+    "descricao": "Ajuste de curvas, erros e exemplos em Python/Excel.",
+    "inicio": "2025-09-18T14:00:00-03:00",
+    "fim": "2025-09-18T15:30:00-03:00",
+    "local": "Sala 101, IME-UFU",
+    "link": "https://meet.example.com/abc",
+    "tags": ["Matemática aplicada", "Python"]
+  },
+  {
+    "titulo": "Simplex na prática",
+    "descricao": "Modelagem, restrições e interpretação de solução.",
+    "inicio": "2025-08-28T16:00:00-03:00",
+    "fim": "2025-08-28T17:30:00-03:00",
+    "local": "Sala 203, IME-UFU",
+    "link": "",
+    "tags": ["Otimização"]
+  },
+  {
+    "titulo": "Software livre para a vida acadêmica",
+    "descricao": "LaTeX, Zotero, LibreOffice, ferramentas úteis.",
+    "inicio": "2025-07-10T14:00:00-03:00",
+    "fim": "2025-07-10T15:30:00-03:00",
+    "local": "Online",
+    "link": "https://meet.example.com/xyz",
+    "tags": ["Ferramentas", "Produtividade"]
+  }
+]
