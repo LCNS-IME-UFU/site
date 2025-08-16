@@ -47,6 +47,7 @@
       <!-- Menu desktop -->
       <ul class="hidden items-center gap-6 md:flex">
         <li><a href="#sobre" class="transition hover:text-blue-600">Sobre</a></li>
+        <li><a href="#lababerto" class="transition hover:text-blue-600">Lab Aberto</a></li>
         <li><a href="#projetos" class="transition hover:text-blue-600">Projetos</a></li>
         <li><a href="#publicacoes" class="transition hover:text-blue-600">Publicações</a></li>
         <li><a href="#contato" class="transition hover:text-blue-600">Contato</a></li>
@@ -64,6 +65,7 @@
     <div id="mobileMenu" class="hidden border-t bg-white dark:bg-slate-900 md:hidden">
       <ul class="mx-auto max-w-6xl px-4 py-2">
         <li><a href="#sobre" class="block py-2">Sobre</a></li>
+        <li><a href="#lababerto" class="block py-2">Lab Aberto</a></li>
         <li><a href="#projetos" class="block py-2">Projetos</a></li>
         <li><a href="#publicacoes" class="block py-2">Publicações</a></li>
         <li><a href="#contato" class="block py-2">Contato</a></li>
@@ -172,6 +174,29 @@
         <button class="btn-ime rounded-lg px-5 py-3 font-semibold text-white transition">Enviar</button>
       </form>
     </div>
+  </section>
+
+  <section id="lababerto" class="border-t py-12">
+  <div class="mx-auto max-w-6xl px-4">
+    <h2 class="text-2xl font-bold">Lab Aberto</h2>
+    <p class="mt-2 text-slate-700 dark:text-slate-300">
+      Encontros mensais para habilidades aplicadas (mínimos quadrados, simplex, software livre, ideias, etc.).
+    </p>
+
+    <!-- Filtros -->
+    <div class="mt-6 flex gap-2">
+      <button id="btnProximos" class="rounded-lg border px-4 py-2 font-medium bg-blue-600 text-white">Próximos</button>
+      <button id="btnAnteriores" class="rounded-lg border px-4 py-2 font-medium">Anteriores</button>
+    </div>
+
+    <!-- Lista -->
+    <div id="labLista" class="mt-6 grid gap-4 md:grid-cols-2"></div>
+
+    <!-- Aviso de fallback -->
+    <p id="labAviso" class="mt-6 hidden text-sm text-slate-500">
+      Não há itens para mostrar no momento.
+    </p>
+  </div>
   </section>
 
   <!-- Rodapé -->
