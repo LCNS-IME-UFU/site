@@ -239,6 +239,91 @@
       });
     });
   </script>
+
+<script>
+  // ===== Lab Aberto =====
+  const lista = document.getElementById('labLista');
+  const aviso = document.getElementById('labAviso');
+  const btnProx = document.getElementById('btnProximos');
+  const btnAnt = document.getElementById('btnAnteriores');
+
+  let eventos = [];
+  let filtro = 'proximos';
+
+  function formatarDataRange(iniISO, fimISO) {
+    // formato amigável pt-BR, respeitando -03:00
+    const ini = new Date(iniISO);
+    const fim = new Date(fimISO);
+    const data = ini.toLocaleDateString('pt-BR', { weekday:'short', day:'2-digit', month:'2-digit', year:'numeric' });
+    const hi = ini.toLocaleTimeString('pt-BR', { hour:'2-digit', minute:'2-digit' });
+    const hf = fim.toLocaleTimeString('pt-BR', { hour:'2-digit', minute:'2-digit' });
+    return `${data} • ${hi}–${hf}`;
+  }
+
+  function card(ev) {
+    const tags = (ev.tags || []).map(t => `<span class="rounded-full border px-2 py-0.5 text-xs">${t}</span>`).join(' ');
+    const link = ev.link ? `<a href="${ev.link}" target="_blank" rel="noopener" class="text-blue-600 hover:underline">Acessar →</a>` : '';
+    return `
+      <article class="card-ime rounded-2xl border p-5 shadow-sm">
+        <h3 class="font-semibold">${ev.titulo}</h3>
+        <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">${formatarDataRange(ev.inicio, ev.fim)}</p>
+        <p class="text-sm text-slate-600 dark:text-slate-300">${ev.local}</p>
+        <p class="mt-3 text-sm">${ev.descricao || ''}</p>
+        <div class="mt-3 flex flex-wrap gap-2">${tags}</div>
+        <div class="mt-4">${link}</div>
+      </article>
+    `;
+  }
+
+  function render() {
+    if (!eventos.length) {
+      lista.innerHTML = '';
+      aviso.classList.remove('hidden');
+      return;
+    }
+    aviso.classList.add('hidden');
+
+    const agora = new Date();
+    const prox = eventos.filter(e => new Date(e.fim) >= agora)
+                        .sort((a,b) => new Date(a.inicio) - new Date(b.inicio));
+    const ant = eventos.filter(e => new Date(e.fim) < agora)
+                       .sort((a,b) => new Date(b.inicio) - new Date(a.inicio));
+
+    const mostrar = (filtro === 'proximos') ? prox : ant;
+    lista.innerHTML = mostrar.map(card).join('') || '';
+
+    // estado visual dos botões
+    if (filtro === 'proximos') {
+      btnProx.classList.add('bg-blue-600','text-white');
+      btnAnt.classList.remove('bg-blue-600','text-white');
+    } else {
+      btnAnt.classList.add('bg-blue-600','text-white');
+      btnProx.classList.remove('bg-blue-600','text-white');
+    }
+
+    if (!mostrar.length) {
+      aviso.textContent = (filtro === 'proximos')
+        ? 'Não há encontros futuros cadastrados.'
+        : 'Não há encontros anteriores cadastrados.';
+      aviso.classList.remove('hidden');
+    }
+  }
+
+  btnProx?.addEventListener('click', () => { filtro = 'proximos'; render(); });
+  btnAnt?.addEventListener('click', () => { filtro = 'anteriores'; render(); });
+
+  // Carrega JSON
+  fetch('./data/lab-aberto.json', { cache: 'no-store' })
+    .then(r => r.json())
+    .then(json => { eventos = json; render(); })
+    .catch(() => {
+      eventos = [];
+      render();
+      aviso.textContent = 'Não foi possível carregar os encontros (verifique data/lab-aberto.json).';
+    });
+</script>
+
+  
 </body>
 </html>
 
